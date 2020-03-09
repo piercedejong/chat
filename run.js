@@ -35,7 +35,16 @@ io.on('connection', function(socket){
 
     socket.on('chat message', function(msg){
         var time = new Date()
-        time = time.getHours()+":"+time.getMinutes()
+        var hours = time.getHours()
+        var minutes = time.getMinutes()
+
+        if(hours.length===1){
+            hours = "0"+hours
+        }
+        if(minutes.length===1){
+            minutes = "0"+minutes
+        }
+        time = minutes+":"+minutes
 
         if(msg.startsWith("/nick ")){
             console.log("hello")
